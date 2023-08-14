@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Motivation}{3}{0}{1}
+\beamer@sectionintoc {2}{Univariate}{11}{0}{2}
+\beamer@sectionintoc {3}{Bivariate}{19}{0}{3}
+\beamer@sectionintoc {4}{Multivariate}{52}{0}{4}

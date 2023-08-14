@@ -1,0 +1,153 @@
+---
+title: "Getting Started with Python, R, and RStudio"
+subtitle: "Day 1"  
+author: "Hunter Glanz"
+
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(tidyverse)
+```
+
+```{r xaringan-themer, include=FALSE}
+library(xaringanthemer)
+solarized_light()
+```
+
+class: center, middle
+
+### Lots of different backgrounds here!
+
+# Why are you here? Why R/Python? Why now?
+
+---
+
+# Why should you learn R/Python?
+
+* Free, improves, have existed for a long time
+* Students can show what they have learned to a potential employer easily
+* The support system for R and Python are actually very good!
+  * Many free textbooks online
+  * Tons of announcements and content on Twitter
+  * [StackOverflow](https://stackoverflow.com/) for coding questions
+  
+.center[![](https://www.thezenteacher.com/wp-content/uploads/2018/11/drinking-from-the-firehose.jpeg)]
+
+---
+
+# But why should YOU learn R/Python?
+
+* R/Python (and eventually Quarto) will save you TONS of time. Long term thinking is key.
+
+--
+
+  * You can easily tweak your code if you need to do another analysis
+  
+--
+
+  * Remembering what drop-down menu something is in two years from now in a different program will be hard
+  
+--
+
+  * Remembering to copy-and-paste your updated plots/analysis into your word processor is a pain and error prone
+  
+--
+
+.center[*Your closest collaborator is you from six months ago, but you no longer answer emails* - Mark Holder]
+
+
+---
+
+# Good Coding Habits
+
+
+* [Good coding style](https://style.tidyverse.org/) -- Use a consistent style!
+
+--
+
+* Use some form of Git
+
+--
+
+.center[*Reproducibility is key!*]
+
+---
+
+# What this workshop is
+
+* (R) Some of...
+
+.center[![](https://paulvanderlaken.files.wordpress.com/2017/07/tidyverse1.png)]
+
+* (Python) pandas, plotnine, scikit-learn
+
+---
+
+# Let's Get Started
+
+* [Installing Python](https://www.anaconda.com/)
+
+  * Click "Download" and follow the directions to install the Anaconda distribution of Python
+  
+--
+
+
+* [Installing R](https://www.r-project.org/)
+
+  * Follow the "Getting Started" directions to download and install R
+  
+--
+
+* [Installing RStudio](https://www.rstudio.com/products/rstudio/)
+
+  * Click on "RStudio Desktop" and follow the directions to download and install the **open source edition** of RStudio Desktop
+  
+---
+
+# Working with R through RStudio
+
+* R/Python are the languages
+
+--
+
+* RStudio/Jupyter/Colab are IDEs (integrated development environment) -- not required to work with the languages, but highly recommended
+
+--
+
+# Basic Ways to Use R in RStudio
+
+1. In the Console Pane
+
+  * Try `2 + 2` and hit Enter
+
+--
+
+2. In an R script (.R) file
+
+  * File -> New File -> R Script
+  
+--
+
+  * Type `2 + 2` in your script, select/highlight it, and then hit Ctrl + Enter
+  
+* You just ran your first line of code!
+
+* Notice that both showed up in your Console pane
+
+---
+
+# Basic Ways to Use Python in Colab (and Juypter)
+
+* Let's play around in Google Colab a bit!
+
+[https://colab.research.google.com/drive/1I2Yg03kZxgQQTLK9m6n0slwZgvlFD_uZ?usp=sharing](https://colab.research.google.com/drive/1I2Yg03kZxgQQTLK9m6n0slwZgvlFD_uZ?usp=sharing)
+

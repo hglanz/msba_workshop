@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>From Data to Deliverable</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Hunter Glanz" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# From Data to Deliverable
+]
+.subtitle[
+## Day 1
+]
+.author[
+### Hunter Glanz
+]
+
+---
+
+
+
+
+
+
+class:center,middle,invert
+# Prettifying your plots
+---
+# Tips
+
+* Google is your friend!  Explore what other people have done.
+* [https://www.r-graph-gallery.com/](https://www.r-graph-gallery.com/)
+* [http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
+* Multiple layers to the plot
+* Look for the `+theme_` options
+* Don't forget to think about colorblindness
+---
+
+```r
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point()
+```
+
+![](Data_to_Deliverable_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+---
+
+```r
+library(ggforce)
+
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point() +
+  stat_ellipse() +
+  ggtitle("Yay! Irises!") + 
+  theme_light()
+```
+
+![](Data_to_Deliverable_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+
+---
+class:center,middle,invert
+# Polishing and sharing your output
+---
+
+# Principles of Reproducibility
+
+The idea:  You should be able to send your project to someone else, and they can jump in and start working right away.
+
+1. Files are organized and well-named.
+2. References to data and code work for everyone. (Projects!)
+3. Package dependency is clear.  (`library`)
+4. Code will run the same every time, even if data values change.
+5. Analysis process is well-explained and easy to read.
+
+---
+# Bad practice
+
+If you put something like this at the top of your .Rmd file, I will set your computer on fire:
+
+
+```r
+setwd("/User/hglanz/Dropbox/Teaching/331/Data/")
+```
+
+- Setting working directory by hand = BAD!  
+- That directory is specific to you!  Where should someone else look for the data?
+- Markdown files won't knit this code.
+
+---
+class: center, middle
+# Dealing with packages
+
+---
+
+## install.packages()
+
+To use a package, it must first be *installed* to your copy of RStudio.
+
+This only needs to happen **ONCE** per computer or server.
+
+
+```r
+install.packages("tidyverse")
+```
+
+---
+
+# update.packages()
+
+If a computer you are using has the package, but you aren't sure if it's up to date:
+
+
+```r
+update.packages("tidyverse")
+```
+
+to install the most recent version.
+
+# NEVER EVER EVER EVER PUT "install.packages" or "update.packages" INTO YOUR MARKDOWN FILE!!!!!
+
+---
+
+# library() and require()
+
+- A package must only be *installed* once.
+- But it must be *loaded* every time, to tell R it is needed for this particular analysis.
+- `library` gives an **error** if the package isn't installed
+- `require` gives a `TRUE/FALSE` value depending on if the package was available
+- For now, you should always use `library`
+
+
+```r
+library(tidyverse)
+
+# notice:  no quotes around package name
+```
+
+
+---
+class: center, middle
+
+# Deliverables in Markdown/Quarto/Notebooks
+
+---
+# General principles
+
+- Give your file a good title, author, and date
+- Name your file something meaningful (match the title!)
+- Use `#` to make section headings etc.  (see cheatsheet)
+- Each code chunk is a unified thought.
+- Text before and after each code chunk to motivate your code and explain the output.
+- Make deliberate decisions about what to display:
+    + Does the reader need to see data loading step?
+    + Does the reader need to see your code?
+    + Does the reader need to see the output?
+ 
+---   
+# Naming code chunks
+
+- Lets you jump between chunks - see demo.
+- Careful with copy-pasting, duplicate names are not allowed.
+
+---
+
+# Setting chunk options
+
+- `echo`: Should this code be **shown** (echoed)?
+- `eval`: Should this code be **run** (evaluated)?
+- `include`: Should this code be neither shown nor run?
+- `error`: If there is an error, should that display rather than breaking the knit?
+- `warning`: If there is a warning, should that display?
+- `message`: If there is a message, should that display?
+
+---
+
+class: center, middle, invert
+
+# YOUR TURN
+
+---
+class: center, middle
+
+## Prettify your notebook with the penguin visualizations and add some narrative text/captions for your plots!
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
