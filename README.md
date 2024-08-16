@@ -9,3 +9,5 @@
 * [Introduction to Data Visualization in Python](https://colab.research.google.com/drive/1oRx8RdWQzQ0KNzAFitC6O6QhXkjxfrgH?usp=sharing)
 
 * [Introduction to Regression in sci-kit learn in Python](https://colab.research.google.com/drive/1fvS7qm8mdWpj0yxS05Ec7ZgWbx98ufcV?usp=sharing)
+
+* [Regression Activity](https://docs.google.com/document/d/1vXbzyX40WyUIHpW8jtmmk8HHyXFIGmvQWb8bCdwXY1Y/edit?usp=sharing)
